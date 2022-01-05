@@ -1,10 +1,10 @@
-import React from "react";
-import { useAppSelector } from "./app/hooks";
-import "./App.css";
+import React from 'react';
+import { useAppSelector } from './app/hooks';
+import './App.css';
 
-import Counter from "./features/counter/Counter";
+import Counter from './features/counter/Counter';
 
-const App = () => {
+function App() {
   const count = useAppSelector((state) => state.counter.value);
   return (
     <div className="App">
@@ -18,10 +18,10 @@ const App = () => {
           <h2>Counter</h2>
           <div
             style={{
-              fontSize: "75px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              fontSize: '75px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             {count}
@@ -31,6 +31,6 @@ const App = () => {
       </main>
     </div>
   );
-};
+}
 
 export default App;

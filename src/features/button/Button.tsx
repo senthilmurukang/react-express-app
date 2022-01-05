@@ -1,16 +1,16 @@
-import { useState } from "react";
-import styles from "./Button.module.css";
+import { useState } from 'react';
+import styles from './Button.module.css';
 
-const Button = ({
-  children = "button",
+function Button({
+  children = 'button',
   onClick = () => {},
-  btnColor = "teal",
-  labelColor = "white",
+  btnColor = 'teal',
+  labelColor = 'white',
   disabled = false,
-  type = "solid",
+  type = 'solid',
   style = {},
   ...props
-}) => {
+}) {
   const [hover, setHover] = useState(false);
   const toggleHover = () => {
     setHover(!hover);
@@ -22,7 +22,7 @@ const Button = ({
   const outlineStyles = {
     border: `1px solid ${btnColor}`,
     color: btnColor,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   };
   const outlineHoverStyle = {
     color: labelColor,
@@ -32,27 +32,27 @@ const Button = ({
   const roundedStyle = {
     backgroundColor: btnColor,
     color: labelColor,
-    borderRadius: "25px",
+    borderRadius: '25px',
   };
   const disabledStyle = {
-    cursor: "default",
+    cursor: 'default',
     backgroundColor: btnColor,
     color: labelColor,
     opacity: 0.4,
   };
   const blockStyles = {
-    width: "95%",
-    margin: "0 auto",
+    width: '95%',
+    margin: '0 auto',
   };
   let btnStyle;
   switch (type) {
-    case "rounded":
+    case 'rounded':
       btnStyle = roundedStyle;
       break;
-    case "block":
+    case 'block':
       btnStyle = blockStyles;
       break;
-    case "outline":
+    case 'outline':
       if (hover) {
         btnStyle = outlineHoverStyle;
       } else {
@@ -70,7 +70,12 @@ const Button = ({
     <button
       style={
         disabled
-          ? { ...commonStyles, ...btnStyle, ...disabledStyle, ...style }
+          ? {
+              ...commonStyles,
+              ...btnStyle,
+              ...disabledStyle,
+              ...style,
+            }
           : { ...commonStyles, ...btnStyle, ...style }
       }
       onMouseEnter={toggleHover}
@@ -83,6 +88,6 @@ const Button = ({
       {children}
     </button>
   );
-};
+}
 
 export default Button;
