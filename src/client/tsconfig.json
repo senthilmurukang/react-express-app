@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "jsx": "react-jsx"
+  }
+}

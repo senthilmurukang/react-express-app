@@ -1,6 +1,0 @@
-{
-  "ignore": ["**/*.test.ts", "**/*.spec.ts", "node_modules", "src/client"],
-  "watch": ["backend"],
-  "exec": "tsc -p tsconfig.json && node src/index.ts",
-  "ext": "ts"
-}
