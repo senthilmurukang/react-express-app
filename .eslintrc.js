@@ -1,20 +1,24 @@
 module.exports = {
+  root: true,
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
-    es2021: true,
+    es6: true,
     node: true,
   },
+  plugins: ['react', '@typescript-eslint'],
   extends: ['plugin:react/recommended', 'airbnb'],
-  parser: '@typescript-eslint/parser',
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 12,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
   rules: {
+    'no-console': 'off',
+    'comma-dangle': 'off',
     'react/prop-types': 'off',
     'no-plusplus': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],

@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable"],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": false,
@@ -16,11 +12,11 @@
     "module": "es6",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "sourceMap": true,
+    "outDir": "../dist",
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["./src/*", "./src/types/**/*.d.ts"]
 }
