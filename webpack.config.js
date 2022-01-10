@@ -4,12 +4,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const stylesHandler = isProduction
-  ? MiniCssExtractPlugin.loader
-  : 'style-loader';
+const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 const config = {
-  entry: path.resolve(__dirname, './src/client/index.tsx'),
+  entry: path.resolve(__dirname, 'src/client/index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -38,7 +36,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json', '.less'],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.less'],
   },
   devServer: {
     port: 3000,
@@ -54,12 +52,8 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      favicon: './public/favicon.ico',
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'styles/[name].[contenthash].css',
-      ignoreOrder: true,
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
     }),
   ],
   optimization: {
@@ -80,6 +74,12 @@ const config = {
 module.exports = () => {
   if (isProduction) {
     config.mode = 'production';
+    config.plugins.push(
+      new MiniCssExtractPlugin({
+        filename: 'styles/[name].[contenthash].css',
+        ignoreOrder: true,
+      }),
+    );
   } else {
     config.mode = 'development';
   }

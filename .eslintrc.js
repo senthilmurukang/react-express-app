@@ -3,11 +3,17 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   env: {
     browser: true,
-    es6: true,
     node: true,
   },
   plugins: ['react', '@typescript-eslint'],
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: [
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+    'prettier',
+    'airbnb',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -15,12 +21,21 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   rules: {
     'no-console': 'off',
     'comma-dangle': 'off',
     'react/prop-types': 'off',
     'no-plusplus': 'off',
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };
