@@ -16,18 +16,10 @@ function Counter() {
 
   return (
     <div>
-      <Button
-        onClick={decrement}
-        style={{ margin: '50px 15px' }}
-        type="outline"
-      >
+      <Button onClick={decrement} style={{ margin: '50px 15px' }} type="outline">
         Decrement
       </Button>
-      <Button
-        onClick={increment}
-        style={{ margin: '50px 15px' }}
-        type="outline"
-      >
+      <Button onClick={increment} style={{ margin: '50px 15px' }} type="outline">
         Increment
       </Button>
     </div>
