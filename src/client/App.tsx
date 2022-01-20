@@ -1,10 +1,10 @@
-import { useAppSelector } from './app/hooks';
 import './App.css';
 
 import Counter from './features/counter/Counter';
+import { useState } from 'react';
 
 function App() {
-  const count = useAppSelector((state) => state.counter.value);
+  let [count, setCounter] = useState(0);
   return (
     <div className="App">
       <nav>
@@ -25,7 +25,7 @@ function App() {
           >
             {count}
           </div>
-          <Counter />
+          <Counter onDecrement={() => setCounter(count - 1)} onIncrement={() => setCounter(count + 1)} />
         </section>
       </main>
     </div>

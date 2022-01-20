@@ -1,25 +1,17 @@
-import { useDispatch } from 'react-redux';
 import Button from '../button/Button';
 
-import { incremented, decremented } from './counter-slice';
+interface CounterProps {
+  onDecrement: () => void;
+  onIncrement: () => void;
+}
 
-function Counter() {
-  const dispatch = useDispatch();
-
-  const increment = () => {
-    dispatch(incremented());
-  };
-
-  const decrement = () => {
-    dispatch(decremented());
-  };
-
+function Counter(props: CounterProps) {
   return (
     <div>
-      <Button onClick={decrement} style={{ margin: '50px 15px' }} type="outline">
+      <Button onClick={props.onDecrement} style={{ margin: '50px 15px' }} type="outline">
         Decrement
       </Button>
-      <Button onClick={increment} style={{ margin: '50px 15px' }} type="outline">
+      <Button onClick={props.onIncrement} style={{ margin: '50px 15px' }} type="outline">
         Increment
       </Button>
     </div>
